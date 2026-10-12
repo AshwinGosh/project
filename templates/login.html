@@ -239,11 +239,12 @@
             <p>Please enter your details to sign in.</p>
         </header>
 
-        <form id="loginForm" novalidate>
+        <form id="loginForm" novalidate method = "POST">
+            {% csrf_token %}    
             <!-- Email Field -->
             <div class="form-group">
                 <div class="password-wrapper">
-                    <input type="email" id="email" class="input-control" placeholder=" " required>
+                    <input type="email" name="email" id="email" class="input-control" placeholder=" " required>
                     <label for="email" class="floating-label">Email Address</label>
                 </div>
                 <div id="emailError" class="error-message">Please enter a valid email address.</div>
@@ -252,7 +253,7 @@
             <!-- Password Field -->
             <div class="form-group">
                 <div class="password-wrapper">
-                    <input type="password" id="password" class="input-control" placeholder=" " required>
+                    <input type="password" name="password" id="password" class="input-control" placeholder=" " required>
                     <label for="password" class="floating-label">Password</label>
                     <button type="button" class="toggle-password" id="togglePassword">
                         <i class="bi bi-eye"></i>
@@ -271,11 +272,11 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn-login"><a href="{% url 'home' %}">Sign In</a></button>
+            <button type="submit" class="btn-login">Log in</button>
 
             <!-- Footer Links -->
             <div class="form-footer">
-            Don't have an account? <a href="{% url 'user_register' %}">Create an account</a>
+            Don't have an account? <a href="{% url 'register' %}">Create an account</a>
             </div>
         </form>
     </main>

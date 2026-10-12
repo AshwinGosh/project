@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Announcements</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eaf4ff;
+            color: #222;
+        }
+
+        .header {
+            background: #1565c0;
+            color: white;
+            padding: 20px 30px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        .btn {
+            background: #1565c0;
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: #1565c0;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dbe7f3;
+        }
+
+        .edit-btn {
+            background: #1565c0;
+            color: white;
+            padding: 7px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background: #e53935;
+            color: white;
+            padding: 7px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Manage Announcements</h2>
+</div>
+
+<div class="container">
+
+    <a href="{% url 'add_announcement' %}" class="btn">+ Add Announcement</a>
+    <a href="{% url 'admin_panel' %}" class="btn">Back to Admin Panel</a>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for announcement in announcements %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ announcement.title }}</td>
+            <td>{{ announcement.message }}</td>
+            <td>{{ announcement.date }}</td>
+            <td>
+                <a href="{% url 'edit_announcement' announcement.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'delete_announcement' announcement.id %}" class="delete-btn">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" style="text-align:center;">No announcements added yet</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

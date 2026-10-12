@@ -467,19 +467,19 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#support">Supportive Site</a></li>
+                     <li><a href="#support">Supportive Site</a></li>
                     <li><a href="#newsletter">Newsletter</a></li>
-                    <li><a href="{% url 'user_login' %}">Feedback</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'feedback' %}">Feedback</a></li>
+                    <li><a href="{% url 'announcements_page' %}">Announcements</a></li>
                 </ul>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <button class="mobile-menu-btn">
+    <i class="fas fa-bars"></i>
+    </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Honest Reviews for Software, Apps & APKs</h1>
